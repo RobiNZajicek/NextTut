@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import Nav from './Nav'
+import MobileNav from './MobileNav'
 const Header = () => {
   return (
     <header className='py-8 xl:py-12 text-white'>
-        <div className='container mx-auto justify-between flex'>
+        <div className=' mx-auto justify-between flex container'>
 
             <Link href='/'>
                 <h1 className='text-4xl font-semibold'>
@@ -19,7 +20,7 @@ const Header = () => {
             </Link>
             </div>
             <div className='xl:hidden'>
-                mobile nav
+                <MobileNav/>
             </div>
         </div>
     </header>

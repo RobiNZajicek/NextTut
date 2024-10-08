@@ -1,6 +1,7 @@
 'use client';
+
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 const links=[
     {
@@ -8,26 +9,32 @@ const links=[
         path:'/'
     },
     {
-        name:'home',
-        path:'/'
+        name:'services',
+        path:'/services'
     },
     {
-        name:'home',
-        path:'/'
+        name:'resume',
+        path:'/resume'
     },
     {
-        name:'home',
-        path:'/'
+        name:'work',
+        path:'/work'
     },
     {
-        name:'home',
-        path:'/'
+        name:'contact',
+        path:'/contact'
     },
 ]
 const Nav = () => {
+    const pathname = usePathname();
+    console.log(pathname);
   return (
-  <nav>
-
+  <nav className="flex gap-8">
+        {links.map((link,index)=>{
+            return <Link className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent transition-all`} href={link.path} key={index}>
+                {link.name}
+            </Link>
+        })}
   </nav>
   )
 }
